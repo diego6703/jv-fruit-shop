@@ -17,9 +17,9 @@ public class FileWriterImpl implements FileWriter {
         if (Files.notExists(path)) {
             try {
                 Files.writeString(path, resultingReport, StandardOpenOption.CREATE);
-                System.out.println("Created new file and wrote header.");
             } catch (IOException e) {
-                System.err.println("Error writing header: " + e.getMessage());
+                throw new RuntimeException("failed to save file: "
+                        + fileName + " on path: " + filePath);
             }
         }
     }

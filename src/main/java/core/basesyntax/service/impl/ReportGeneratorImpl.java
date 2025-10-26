@@ -12,7 +12,7 @@ public class ReportGeneratorImpl implements ReportGenerator {
         stringBuilder.append("fruit");
         stringBuilder.append(Constants.COMA_SEPARATOR);
         stringBuilder.append("quantity");
-        for (var elem : Storage.getFruitStatus().entrySet()) {
+        for (var elem : Storage.getFullStorage()) {
             stringBuilder.append(System.lineSeparator());
             stringBuilder.append(elem.getKey());
             stringBuilder.append(Constants.COMA_SEPARATOR);

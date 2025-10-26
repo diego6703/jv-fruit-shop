@@ -18,8 +18,8 @@ public class FileReaderImpl implements FileReader {
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
             result = lines.skip(1).collect(Collectors.toList());
         } catch (IOException e) {
-            System.out.println("Can't find file on path: " + filePath);
-            ;
+            throw new RuntimeException("failed to read file: " + fileName
+                    + " on path: " + filePath);
         }
         return result;
     }

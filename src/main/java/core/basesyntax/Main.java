@@ -32,7 +32,7 @@ public class Main {
         OperationStrategy operationStrategy = new OperationStrategyImpl(operationHandlers);
 
         FileReader fileReader = new FileReaderImpl();
-        List<String> inputReport = fileReader.read("reportToRead.csv");
+        List<String> inputReport = fileReader.read("src/main/resources/reportToRead.csv");
         DataConverter dataConverter = new DataConverterImpl();
         List<FruitTransaction> transactions = dataConverter.convertToTransaction(inputReport);
         ShopService shopService = new ShopServiceImpl(operationStrategy);
@@ -42,6 +42,6 @@ public class Main {
         String resultingReport = reportGenerator.getReport();
 
         FileWriter fileWriter = new FileWriterImpl();
-        fileWriter.write(resultingReport, "finalReport.csv");
+        fileWriter.write(resultingReport, "src/main/resources/finalReport.csv");
     }
 }

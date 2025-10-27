@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 public class FileWriterImpl implements FileWriter {
 
@@ -13,7 +12,7 @@ public class FileWriterImpl implements FileWriter {
     public void write(String resultingReport, String fileName) {
         Path path = Paths.get(fileName);
         try {
-            Files.writeString(path, resultingReport, StandardOpenOption.CREATE);
+            Files.writeString(path, resultingReport);
         } catch (IOException e) {
             throw new RuntimeException("failed to save file: "
                     + fileName + " on path: " + fileName, e);
